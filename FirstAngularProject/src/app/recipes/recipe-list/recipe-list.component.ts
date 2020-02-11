@@ -9,7 +9,8 @@ import { Recipe } from '../recipe.model';
 export class RecipeListComponent implements OnInit {
   @Output() recipeWasSelected = new EventEmitter<Recipe>();
   recipes: Recipe[] = [
-    new Recipe('Test Recipe', 'This is a Test', 'https://image.shutterstock.com/z/stock-photo-healthy-food-clean-eating-selection-fruit-vegetable-seeds-superfood-cereals-leaf-vegetable-on-722718082.jpg')
+    new Recipe('Test Recipe', 'This is a Test', 'https://image.shutterstock.com/z/stock-photo-healthy-food-clean-eating-selection-fruit-vegetable-seeds-superfood-cereals-leaf-vegetable-on-722718082.jpg'),
+    new Recipe('Another Test Recipe', 'This is also a Test', 'https://image.shutterstock.com/z/stock-photo-healthy-food-clean-eating-selection-fruit-vegetable-seeds-superfood-cereals-leaf-vegetable-on-722718082.jpg')
   ]
   constructor() { }
 
@@ -17,7 +18,7 @@ export class RecipeListComponent implements OnInit {
   }
 
   onRecipeSelected(recipe: Recipe) {
-    this.recipeWasSelected.emit();
+    this.recipeWasSelected.emit(recipe);
   }
 
 }
